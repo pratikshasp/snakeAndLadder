@@ -10,7 +10,12 @@ public class SnakeAndLadderService {
     private Dice dice;
 
     public void start(int numberOfTurns) {
+        int diceThrowResult;
 
+        for (int turn = 0; turn < numberOfTurns; turn++) {
+            diceThrowResult = dice.roll();
+            board.movePlayer(diceThrowResult);
+        }
     }
 
     public int result() {
