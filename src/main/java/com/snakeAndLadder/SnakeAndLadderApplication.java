@@ -17,7 +17,7 @@ public class SnakeAndLadderApplication {
 
         snakeAndLadderService.start(numberOfTurns);
         playerPosition = snakeAndLadderService.result();
-        System.out.println("Player position after %d turns: %d " + numberOfTurns + playerPosition);
+        System.out.println("Player position after " + numberOfTurns+ " turns: " + playerPosition);
     }
 
 }
