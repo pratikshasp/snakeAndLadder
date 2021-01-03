@@ -19,6 +19,6 @@ public class SnakeAndLadderService {
     }
 
     public int result() {
-        return 0;
+        return board.getPlayerPosition();
     }
 }

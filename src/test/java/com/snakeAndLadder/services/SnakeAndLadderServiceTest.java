@@ -3,7 +3,7 @@ package com.snakeAndLadder.services;
 import com.snakeAndLadder.models.Board;
 import com.snakeAndLadder.models.Dice;
 import org.junit.jupiter.api.Test;
-
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class SnakeAndLadderServiceTest {
@@ -20,6 +20,21 @@ class SnakeAndLadderServiceTest {
 
         verify(mockDice, times(numberOfTurns)).roll();
         verify(mockBoard, times(numberOfTurns)).movePlayer(numberOfTurns);
+    }
+
+    @Test
+    public void shouldReturnGameResult(){
+        Board mockBoard = mock(Board.class);
+        Dice mockDice = mock(Dice.class);
+
+        when(mockBoard.getPlayerPosition()).thenReturn(5);
+        SnakeAndLadderService snakeAndLadderService= new SnakeAndLadderService(mockBoard, mockDice);
+
+        int actualPosition = snakeAndLadderService.result();
+
+        int expectedPosition = 5;
+        verify(mockBoard, times(1)).getPlayerPosition();
+        assertEquals(expectedPosition, actualPosition);
     }
 
 }
