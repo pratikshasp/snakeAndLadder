@@ -17,4 +17,15 @@ class BoardTest {
         assertEquals(expectedPosition, board.getPlayerPosition());
     }
 
+    @Test
+    public void shouldNotMoveThePlayerIfNewPositionIsGreaterThanBoardSize(){
+        Board board = new Board( 98);
+        int diceThrowResult = 5;
+
+        board.movePlayer(diceThrowResult);
+
+        int expectedPosition = 98;
+        assertEquals(expectedPosition, board.getPlayerPosition());
+    }
+
 }
