@@ -14,7 +14,7 @@ public class SnakeAndLadderService {
     public void start(int numberOfTurns) {
         int diceThrowResult;
 
-        for (int turn = 0; turn < numberOfTurns; turn++) {
+        for (int turn = 1; turn <= numberOfTurns; turn++) {
             diceThrowResult = dice.roll();
             board.movePlayer(diceThrowResult);
             log.info("player position after " + turn + " turns: " + board.getPlayerPosition());

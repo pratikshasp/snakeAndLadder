@@ -1,17 +1,18 @@
 package com.snakeAndLadder.models;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import static org.junit.jupiter.api.Assertions.*;
 
-class DiceTest {
+class CrookedDiceTest {
 
     @Test
     public void shouldRollTheDice(){
-        Dice dice = new Dice();
+        CrookedDice dice = new CrookedDice();
 
         int result = dice.roll();
 
-        assertNotNull(result);
+        assertEquals(0, result%2);
     }
+
 }
