@@ -13,31 +13,34 @@ public class SnakeAndLadderApplication {
     public static void main(String[] args) {
         int numberOfTurns = 10;
         int playerPosition;
+        String diceType = args.length != 0 ? args[0] : "";
 
         //create a board
         Board board = createBoard();
 
         //create a dice
-        Dice dice = createDice();
+
+        Dice dice = createDice(diceType);
 
         //create service with created board and dice
         SnakeAndLadderService snakeAndLadderService = new SnakeAndLadderService(board, dice);
 
         snakeAndLadderService.start(numberOfTurns);
         playerPosition = snakeAndLadderService.result();
-        System.out.println("Player position after " + numberOfTurns+ " turns: " + playerPosition);
+        System.out.println("Player position after " + numberOfTurns + " turns: " + playerPosition);
     }
 
-    private static Dice createDice() {
-        System.out.println("Select dice type and enter dice type index:");
-        System.out.println("1 SimpleDice");
-        System.out.println("2 CrookedDice");
-
-        Scanner scanner = new Scanner(System.in);
-        int userChoice = scanner.nextInt();
+    private static Dice createDice(String diceType) {
+//        System.out.println("Select dice type and enter dice type index:");
+//        System.out.println("1 SimpleDice");
+//        System.out.println("2 CrookedDice");
+//
+//        Scanner scanner = new Scanner(System.in);
+//        int userChoice = scanner.nextInt();
         Dice dice;
 
-        if (userChoice == 2)
+//        if (userChoice == 2)
+        if (diceType.equals("crooked"))
             dice = new CrookedDice();
         else
             dice = new SimpleDice();
